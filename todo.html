@@ -1,0 +1,30 @@
+<html>
+<head>
+  <script src="jquery.js"></script>
+  <style>
+    .completed {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+  <input id="itemField" />
+  <p>
+    <ul id="list"></ul>
+    <script>
+      function keyPressHandler(e) {
+        if (e.keyCode == 13) {
+          $('#list').append('<li>' + $('#itemField').val() + '</li>');
+          $('#itemField').val('');
+        }
+      }
+
+      function itemClickHandler() {
+        $(this).toggleClass('completed');
+      }
+
+      $('#itemField').keyup(keyPressHandler);
+      $(document).on('click', '#list li', itemClickHandler);
+    </script>
+  </body>
+</html>
