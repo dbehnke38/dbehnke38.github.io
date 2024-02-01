@@ -14,6 +14,7 @@
     <script>
       function keyPressHandler(e) {
         if (e.keyCode == 13) {
+          e.preventDefault(); // Prevent form submission
           $('#list').append('<li>' + $('#itemField').val() + '</li>');
           $('#itemField').val('');
         }
